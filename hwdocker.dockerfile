@@ -8,5 +8,5 @@ EXPOSE 8080
 RUN mkdir /home/app
 RUN git clone https://github.com/daticahealth/java-tomcat-maven-example.git /home/app
 RUN cd /home/app; mvn package
-RUN find /home/app/target -name *.war | cp /var/lib/tomcat9/webapps
+RUN find /home/app/target -name *.war -exec cp -t /var/lib/tomcat9/webapps { } +
 CMD ["catalina.sh", "run"]
