@@ -4,6 +4,10 @@ RUN apt-get install git -y
 RUN apt-get install default-jdk -y
 RUN apt-get install maven -y
 RUN apt-get install tomcat9 -y
+ENV CATALINA_HOME /usr/local/tomcat
+ENV PATH $CATALINA_HOME/bin:$PATH
+RUN mkdir -p "$CATALINA_HOME"
+WORKDIR $CATALINA_HOME
 EXPOSE 8080
 RUN mkdir /home/app
 RUN git clone https://github.com/daticahealth/java-tomcat-maven-example.git /home/app
