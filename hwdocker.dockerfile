@@ -5,7 +5,7 @@ RUN apt-get install default-jdk -y
 RUN apt-get install maven -y
 RUN apt-get install tomcat9 -y
 ENV CATALINA_HOME /usr/local/tomcat
-ENV PATH $CATALINA_HOME/bin:$PATH
+ENV PATH $CATALINA_HOME:$PATH
 RUN mkdir -p "$CATALINA_HOME"
 WORKDIR $CATALINA_HOME
 EXPOSE 8080
